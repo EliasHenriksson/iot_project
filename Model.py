@@ -8,9 +8,9 @@ db = SQLAlchemy()
 class Observation(db.Model):
     __tablename__ = 'observations'
     observationId = db.Column(db.Integer, primary_key=True)
-    thingId = db.Column(db.String(150))
+    thingId = db.Column(db.String(150), nullable=False)
     name = db.Column(db.String(150), nullable=False)
-    timestamp = db.Column(db.String(150), nullable=False)
+    timestamp = db.Column(db.Integer, nullable=False)
     data = db.Column(db.String(150), nullable=False)
 
     def __init__(self, thingId, name, timestamp, data):
@@ -22,5 +22,5 @@ class Observation(db.Model):
 class ObservationSchema(ma.Schema):
     thingId = fields.String(required=True)
     name = fields.String(required=True)
-    timestamp = fields.String(required=True)
+    timestamp = fields.Integer(required=True)
     data = fields.Dict(required=True)

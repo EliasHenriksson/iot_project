@@ -14,7 +14,7 @@ class TestApp(unittest.TestCase):
 	    assert len(json.loads(response.data)["data"]) == 0  
 
 	def testStoreOneObservation(self):
-		data = json.dumps({"thingId": "001", "name": "thermostat", "timestamp": "1", "data": {"heat": "5"}},sort_keys=True)		
+		data = json.dumps({"thingId": "001", "name": "thermostat", "timestamp": 1, "data": {"heat": "5"}},sort_keys=True)		
 		response = self.app.post('/api/Observation', data = data, content_type='application/json')
 		response = self.app.get('/api/Observation')
 

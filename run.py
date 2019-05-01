@@ -2,6 +2,7 @@ from flask import Flask
 from sqlalchemy import create_engine
 from app import api_bp
 from Model import db
+
 def create_app(config_filename):
     app = Flask(__name__)
     app.config.from_object(config_filename)

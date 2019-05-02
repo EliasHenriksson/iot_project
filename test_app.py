@@ -45,8 +45,8 @@ class TestApp(unittest.TestCase):
         if "422" not in response.status:
             assert False
 
-    def test_store_json_with_extra_field(self):
-        data = json.dumps({"name": "thermostat", "timestamp": 1, "data": {"heat": "3"}, "extraField": "2"})
+    def test_store_json_with_data2(self):
+        data = json.dumps({"name": "thermostat", "timestamp": 1, "data": {"heat": "3"}, "data2": "2"})
         response = self.app.post(ENDPOINT, data=data)
 
         if "422" not in response.status:

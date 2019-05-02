@@ -5,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 ma = Marshmallow()
 db = SQLAlchemy()
 
+
 class Observation(db.Model):
     __tablename__ = 'observations'
     observationId = db.Column(db.Integer, primary_key=True)
@@ -18,6 +19,7 @@ class Observation(db.Model):
         self.timestamp = timestamp
         self.name = name
         self.data = data
+
 
 class ObservationSchema(ma.Schema):
     thingId = fields.String(required=True)

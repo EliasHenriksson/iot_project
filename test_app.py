@@ -38,19 +38,19 @@ class TestApp(unittest.TestCase):
 
         assert len(json.loads(response.data)["data"]) == NBR_OF_OBSERVATIONS
 
-    def test_store_json_without_thing_od(self):
+    def test_store_json_without_thing_id(self):
         data = json.dumps({"name": "thermostat", "timestamp": 1, "data": {"heat": "3"}})
         response = self.app.post(ENDPOINT, data=data)
 
         if "422" not in response.status:
-            assert True
+            assert False
 
     def test_store_json_with_extra_field(self):
         data = json.dumps({"name": "thermostat", "timestamp": 1, "data": {"heat": "3"}, "extraField": "2"})
         response = self.app.post(ENDPOINT, data=data)
 
         if "422" not in response.status:
-            assert True
+            assert False
 
 
 if __name__ == '__main__':
